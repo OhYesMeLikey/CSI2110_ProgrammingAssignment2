@@ -1,0 +1,4 @@
+Input: 10,Abm
+Output: 14
+Input: 10,fun
+Output: 989

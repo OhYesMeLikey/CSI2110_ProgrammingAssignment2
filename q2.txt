@@ -1,0 +1,4 @@
+Input:data structure is fun
+Output: 2050110814
+Input:data structure is not fun
+Output: 358356266
