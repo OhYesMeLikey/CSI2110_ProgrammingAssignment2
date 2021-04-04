@@ -8,6 +8,7 @@ public class ProgrammingA2Q1 {
     }
 
     /*
+    I technically don't need this, but I'll just leave it here for now.
     This method takes in a string and a pos and returns a shorter version of the given string by cutting off the last character of the given string.
     */
     private String makeItShorter (String s, int pos){
@@ -240,7 +241,9 @@ public class ProgrammingA2Q1 {
     }
 
     public static void main(String[] args) {
+        /*
         ProgrammingA2Q1 a = new ProgrammingA2Q1 ();
+
         String[] resultOfPartB = a.partB(3, 10, 12);
         System.out.println(resultOfPartB[0]);
         System.out.println(resultOfPartB[1]);
@@ -252,7 +255,7 @@ public class ProgrammingA2Q1 {
         String[] resultOfPartB3 = a.partB(4, 25, 10);
         System.out.println(resultOfPartB3[0]);
         System.out.println(resultOfPartB3[1]);
-
+        */
         /*
         int test = a.partA("Abm", 10);
         int test2 = a.partA("fun", 10);
@@ -262,7 +265,6 @@ public class ProgrammingA2Q1 {
         System.out.println("Result: " + String.valueOf(test));
         */
 
-        /*
         if (args[0].equals("a") || args[0].equals("A")) {
             ProgrammingA2Q1 a = new ProgrammingA2Q1 ();
 
@@ -272,11 +274,27 @@ public class ProgrammingA2Q1 {
             System.out.println("Enter word to hash: ");
             String word = myObj.nextLine();  // Read user input
             System.out.println();
+
             int res = a.partA(word, Integer.parseInt(size));
             System.out.println();
             System.out.println( "\nThis is your hashed result: " + String.valueOf(res) );
 
         }
-        */
+        else if (args[0].equals("b") || args[0].equals("B")) {
+            ProgrammingA2Q1 a = new ProgrammingA2Q1 ();
+            Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+            System.out.println("Enter the size of your word from 1 to 5, inclusively: ");
+            String size = myObj.nextLine();  // Read user input
+            System.out.println("Enter the hash value: ");
+            String hashValue = myObj.nextLine();  // Read user input
+            System.out.println("Enter the hash table size from 0 to 25, inclusively: ");
+            String hashTableSize = myObj.nextLine();  // Read user input
+            System.out.println();
+
+            String[] b = a.partB(Integer.parseInt(size), Integer.parseInt(hashValue), Integer.parseInt(hashTableSize));
+            System.out.println();
+            System.out.println("There are " + b[0] + " words with the length " + size + ". They are below:");
+            System.out.println(b[1]);
+        }
     }
 }
