@@ -35,7 +35,9 @@ public class ProgrammingA2Q1 {
             return 0;
         }
 
-        String shorter = makeItShorter(randWord, pos);
+        //String shorter = makeItShorter(randWord, pos);
+        String shorter = randWord.substring(0, pos);
+        //System.out.println("shorter: " + shorter);
         int leftXOR = partAHelper (shorter, m, pos - 1) * 33;
         char c = randWord.charAt(pos);
         int ascii = (int) c;
@@ -49,18 +51,20 @@ public class ProgrammingA2Q1 {
         return entireXOR % hashTableSize;
     }
 
-    private String[] oneLoop (int numOfLetters, int k, int m, String alphabet){
+    private String[] oneLoop (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
+        int numOfLetters = alphabet.length();
         for (int loop1 = 0; loop1 < numOfLetters; loop1++) {
             char c = alphabet.charAt(loop1);
-            String s = String.valueOf(c);
+            String s = Character.toString(c);
+            //String s = String.valueOf(c);
 
             if ((partA(s, m) == k) && (loop1 == numOfLetters - 1)) {
                 counter++;
                 res += c;
             }
-            else {
+            else if ( partA(s, m) == k ) {
                 counter++;
                 res += c + "\n";
             }
@@ -68,22 +72,26 @@ public class ProgrammingA2Q1 {
         return new String[] {String.valueOf(counter), res};
     }
 
-    private String[] twoLoops (int numOfLetters, int k, int m, String alphabet){
+    private String[] twoLoops (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
+        int numOfLetters = alphabet.length();
         for (int loop1 = 0; loop1 < numOfLetters; loop1++) {
             for (int loop2 = 0; loop2 < numOfLetters; loop2++) {
                 char c1 = alphabet.charAt(loop1);
                 char c2 = alphabet.charAt(loop2);
-                String s = String.valueOf(c1+c2);
+                String s1 = Character.toString(c1);
+                String s2 = Character.toString(c2);
+
+                String s = String.valueOf(s1+s2);
 
                 if ( (partA(s, m) == k) &&
                     (loop1 == numOfLetters - 1) &&
                     (loop2 == numOfLetters - 1) ) {
-                    counter++;
-                    res += s;
+                        counter++;
+                        res += s;
                 }
-                else {
+                else if ( partA(s, m) == k ) {
                     counter++;
                     res += s + "\n";
                 }
@@ -92,27 +100,35 @@ public class ProgrammingA2Q1 {
         return new String[] {String.valueOf(counter), res};
     }
 
-    private String[] threeLoops (int numOfLetters, int k, int m, String alphabet){
+    private String[] threeLoops (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
+        int numOfLetters = alphabet.length();
         for (int loop1 = 0; loop1 < numOfLetters; loop1++) {
             for (int loop2 = 0; loop2 < numOfLetters; loop2++) {
                 for (int loop3 = 0; loop3 < numOfLetters; loop3++) {
                     char c1 = alphabet.charAt(loop1);
                     char c2 = alphabet.charAt(loop2);
                     char c3 = alphabet.charAt(loop3);
-                    String s = String.valueOf(c1+c2+c3);
+                    String s1 = Character.toString(c1);
+                    String s2 = Character.toString(c2);
+                    String s3 = Character.toString(c3);
+
+                    String s = String.valueOf(s1+s2+s3);
+                    //System.out.println(s);
 
                     if ( (partA(s, m) == k) &&
                         (loop1 == numOfLetters - 1) &&
                         (loop2 == numOfLetters - 1) &&
                         (loop3 == numOfLetters - 1) ) {
-                        counter++;
-                        res += s;
+                            counter++;
+                            res += s;
+                            //System.out.println("Eq string is: " + res);
                     }
-                    else {
+                    else if ( partA(s, m) == k ) {
                         counter++;
                         res += s + "\n";
+                        //System.out.println("Eq string is: " + res);
                     }
                 }
             }
@@ -120,9 +136,10 @@ public class ProgrammingA2Q1 {
         return new String[] {String.valueOf(counter), res};
     }
 
-    private String[] fourLoops (int numOfLetters, int k, int m, String alphabet){
+    private String[] fourLoops (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
+        int numOfLetters = alphabet.length();
         for (int loop1 = 0; loop1 < numOfLetters; loop1++) {
             for (int loop2 = 0; loop2 < numOfLetters; loop2++) {
                 for (int loop3 = 0; loop3 < numOfLetters; loop3++) {
@@ -131,17 +148,22 @@ public class ProgrammingA2Q1 {
                         char c2 = alphabet.charAt(loop2);
                         char c3 = alphabet.charAt(loop3);
                         char c4 = alphabet.charAt(loop4);
-                        String s = String.valueOf(c1+c2+c3+c4);
+                        String s1 = Character.toString(c1);
+                        String s2 = Character.toString(c2);
+                        String s3 = Character.toString(c3);
+                        String s4 = Character.toString(c4);
+
+                        String s = String.valueOf(s1+s2+s3+s4);
 
                         if ( (partA(s, m) == k) &&
                             (loop1 == numOfLetters - 1) &&
                             (loop2 == numOfLetters - 1) &&
                             (loop3 == numOfLetters - 1) &&
                             (loop4 == numOfLetters - 1) ) {
-                            counter++;
-                            res += s;
+                                counter++;
+                                res += s;
                         }
-                        else {
+                        else if ( partA(s, m) == k ) {
                             counter++;
                             res += s + "\n";
                         }
@@ -152,9 +174,10 @@ public class ProgrammingA2Q1 {
         return new String[] {String.valueOf(counter), res};
     }
 
-    private String[] fiveLoops (int numOfLetters, int k, int m, String alphabet){
+    private String[] fiveLoops (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
+        int numOfLetters = alphabet.length();
         for (int loop1 = 0; loop1 < numOfLetters; loop1++) {
             for (int loop2 = 0; loop2 < numOfLetters; loop2++) {
                 for (int loop3 = 0; loop3 < numOfLetters; loop3++) {
@@ -165,7 +188,13 @@ public class ProgrammingA2Q1 {
                             char c3 = alphabet.charAt(loop3);
                             char c4 = alphabet.charAt(loop4);
                             char c5 = alphabet.charAt(loop5);
-                            String s = String.valueOf(c1+c2+c3+c4+c5);
+                            String s1 = Character.toString(c1);
+                            String s2 = Character.toString(c2);
+                            String s3 = Character.toString(c3);
+                            String s4 = Character.toString(c4);
+                            String s5 = Character.toString(c5);
+
+                            String s = String.valueOf(s1+s2+s3+s4+s5);
 
                             if ( (partA(s, m) == k) &&
                                 (loop1 == numOfLetters - 1) &&
@@ -173,10 +202,10 @@ public class ProgrammingA2Q1 {
                                 (loop3 == numOfLetters - 1) &&
                                 (loop4 == numOfLetters - 1) &&
                                 (loop5 == numOfLetters - 1) ) {
-                                counter++;
-                                res += s;
+                                    counter++;
+                                    res += s;
                             }
-                            else {
+                            else if ( partA(s, m) == k ) {
                                 counter++;
                                 res += s + "\n";
                             }
@@ -190,37 +219,47 @@ public class ProgrammingA2Q1 {
 
     public String[] partB (int n, int k, int m){
         String[] result = new String[2];
-        int numOfLetters = 26;
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
         if (n == 1) {
-            result = oneLoop(numOfLetters, k, m, alphabet);
+            result = oneLoop(k, m, alphabet);
         }
         else if (n == 2) {
-            result = twoLoops(numOfLetters, k, m, alphabet);
+            result = twoLoops(k, m, alphabet);
         }
         else if (n == 3) {
-            result = threeLoops(numOfLetters, k, m, alphabet);
+            result = threeLoops(k, m, alphabet);
         }
         else if (n == 4) {
-            result = fourLoops(numOfLetters, k, m, alphabet);
+            result = fourLoops(k, m, alphabet);
         }
         else if (n == 5) {
-            result = fiveLoops(numOfLetters, k, m, alphabet);
+            result = fiveLoops(k, m, alphabet);
         }
         return result;
     }
 
     public static void main(String[] args) {
         ProgrammingA2Q1 a = new ProgrammingA2Q1 ();
-        String[] resultOfPartB = a.partB() 
+        String[] resultOfPartB = a.partB(3, 10, 12);
+        System.out.println(resultOfPartB[0]);
+        System.out.println(resultOfPartB[1]);
+
+        String[] resultOfPartB2 = a.partB(3, 11, 12);
+        System.out.println(resultOfPartB2[0]);
+        System.out.println(resultOfPartB2[1]);
+
+        String[] resultOfPartB3 = a.partB(4, 25, 10);
+        System.out.println(resultOfPartB3[0]);
+        System.out.println(resultOfPartB3[1]);
+
         /*
         int test = a.partA("Abm", 10);
         int test2 = a.partA("fun", 10);
         int test3 = a.partA("hsq", 10);
         int test4 = a.partA("pcy", 10);
         int test5 = a.partA("xsa", 10);
-        System.out.println("Result: " + String.valueOf(test5));
+        System.out.println("Result: " + String.valueOf(test));
         */
 
         /*
