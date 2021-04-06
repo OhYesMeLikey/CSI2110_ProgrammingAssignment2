@@ -9,6 +9,13 @@ public class ProgrammingA2Q2 {
 
     /*
     This is a helper method for the method bitFolding. This returns the decimal value of the given string paragraph, where you have to bit fold every 4 letters in the string. If you can't bit fold last 4 letters, then you have to use 10000000 as the second 8 bits in a 32 bit number, and you have to append the leading zeros 00000000 as many times as needed to make a 32 bit value.
+
+    Things I need:
+    1. 4 individual characters from a string
+    2. obtain the equivalent byte (i.e. 8 bits) for each of the characters
+    3. convert each equivalent byte to its string representation
+    4. combine each of the equivalent string representation in reverse order
+    5. convert the combined string into its equivalent numeric value
     */
     private int bitFoldingHelper (String paragraph, int pos){
         char c;
@@ -125,7 +132,7 @@ public class ProgrammingA2Q2 {
         //int res = test.bitFolding("lorem ipsum dolor");
         //System.out.println(res);
         int res1 = test.bitFolding("data structure is fun");
-        System.out.println(res1);
+        System.out.println("The result is: " + String.valueOf(res1));
 
         /*
         ProgrammingA2Q2 q2 = new ProgrammingA2Q2();

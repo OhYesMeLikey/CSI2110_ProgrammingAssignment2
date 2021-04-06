@@ -70,7 +70,7 @@ public class Test {
         int third = 1970561909;
         int fourth = 1763730802;
         int fifth = 1969627251;
-        int sixth = 128;
+        int sixth = 32878;
         System.out.println(first ^ second ^ third ^ fourth ^ fifth ^ sixth);
     }
 }
