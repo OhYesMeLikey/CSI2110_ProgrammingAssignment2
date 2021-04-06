@@ -1,3 +1,5 @@
+In the assignment, the answer in the given example for task 2 is actually incorrect as the TA even checked for me, so the steps and the answer below are the correct things.  
+
 1st: "data"
 01100100 01100001 01110100 01100001
 2nd: " str"
