@@ -3,23 +3,15 @@ import java.util.Scanner;
 
 public class ProgrammingA2Q1 {
 
+    /*
+    This method returns the hash value of the given string randWord by calling the helper method partAHelper to do the recursive calls.
+    */
     public int partA (String randWord, int m){
         return partAHelper (randWord, m, randWord.length() - 1);
     }
 
     /*
-    I technically don't need this, but I'll just leave it here for now.
-    This method takes in a string and a pos and returns a shorter version of the given string by cutting off the last character of the given string.
-    */
-    private String makeItShorter (String s, int pos){
-        String newString = "";
-        for (int i = 0; i < pos; i++) {
-            newString += s.charAt(i);
-        }
-        return newString;
-    }
-
-    /*
+    A helper method for the method partA. This method returns the hash value of the given string randWord.
     Things I want if I want recurse back:
     1. 2^m
     2. remainder operator
@@ -36,7 +28,6 @@ public class ProgrammingA2Q1 {
             return 0;
         }
 
-        //String shorter = makeItShorter(randWord, pos);
         String shorter = randWord.substring(0, pos);
         //System.out.println("shorter: " + shorter);
         int leftXOR = partAHelper (shorter, m, pos - 1) * 33;
@@ -52,6 +43,11 @@ public class ProgrammingA2Q1 {
         return entireXOR % hashTableSize;
     }
 
+    /*
+    A helper method for the method partB when n=1. This method returns an array of string that contains the following:
+    First element is an integer for the number of words that has the same hash value as the given number k.
+    Second element is a line by line string of all of the possible words that have the given length n
+    */
     private String[] oneLoop (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
@@ -73,6 +69,11 @@ public class ProgrammingA2Q1 {
         return new String[] {String.valueOf(counter), res};
     }
 
+    /*
+    A helper method for the method partB when n=2. This method returns an array of string that contains the following:
+    First element is an integer for the number of words that has the same hash value as the given number k.
+    Second element is a line by line string of all of the possible words that have the given length n
+    */
     private String[] twoLoops (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
@@ -101,6 +102,11 @@ public class ProgrammingA2Q1 {
         return new String[] {String.valueOf(counter), res};
     }
 
+    /*
+    A helper method for the method partB when n=3. This method returns an array of string that contains the following:
+    First element is an integer for the number of words that has the same hash value as the given number k.
+    Second element is a line by line string of all of the possible words that have the given length n
+    */
     private String[] threeLoops (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
@@ -137,6 +143,11 @@ public class ProgrammingA2Q1 {
         return new String[] {String.valueOf(counter), res};
     }
 
+    /*
+    A helper method for the method partB when n=4. This method returns an array of string that contains the following:
+    First element is an integer for the number of words that has the same hash value as the given number k.
+    Second element is a line by line string of all of the possible words that have the given length n
+    */
     private String[] fourLoops (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
@@ -175,6 +186,11 @@ public class ProgrammingA2Q1 {
         return new String[] {String.valueOf(counter), res};
     }
 
+    /*
+    A helper method for the method partB when n=5. This method returns an array of string that contains the following:
+    First element is an integer for the number of words that has the same hash value as the given number k.
+    Second element is a line by line string of all of the possible words that have the given length n
+    */
     private String[] fiveLoops (int k, int m, String alphabet){
         int counter = 0;
         String res = "";
@@ -218,6 +234,11 @@ public class ProgrammingA2Q1 {
         return new String[] {String.valueOf(counter), res};
     }
 
+    /*
+    Returns an array of string that contains the following:
+    First element is an integer for the number of words with the given length n
+    Second element is a line by line string of all of the possible words that have the given length n
+    */
     public String[] partB (int n, int k, int m){
         String[] result = new String[2];
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
