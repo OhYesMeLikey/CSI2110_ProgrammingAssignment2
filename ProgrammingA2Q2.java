@@ -6,12 +6,10 @@ public class ProgrammingA2Q2 {
 
     private int bitFoldingHelper (String paragraph, int pos){
         if (pos + 4 > paragraph.length() - 1) {
-            System.out.println("128");
-            System.out.println("The rest of the paragraph is:" + paragraph);
+            //System.out.println("128");
+            //System.out.println("The rest of the paragraph is:" + paragraph);
             return 128;
         }
-        //String example = "01100101011100100110111101101100";
-
         // 1. 4 individual characters from a string
         char c = paragraph.charAt(pos);
         char c1 = paragraph.charAt(pos+1);
@@ -41,19 +39,25 @@ public class ProgrammingA2Q2 {
         String smallerParagraph = paragraph.substring(pos+4);
 
         // more print statements to test
-        System.out.println("current paragraph:" + paragraph);
+        //System.out.println("current paragraph:" + paragraph);
         String current4 = Character.toString(c) + Character.toString(c1) + Character.toString(c2) + Character.toString(c3);
-        System.out.println("current 4 characters:" + current4);
-        System.out.println("smallerParagraph:" + smallerParagraph + "\n");
+        //System.out.println("current 4 characters:" + current4);
+        //System.out.println("smallerParagraph:" + smallerParagraph + "\n");
 
         return eqIntValue ^ bitFoldingHelper(smallerParagraph, pos);
     }
 
     public static void main(String[] args) {
+        /*
         ProgrammingA2Q2 test = new ProgrammingA2Q2();
         int res = test.bitFolding("lorem ipsum dolor");
         System.out.println(res);
         int res1 = test.bitFolding("data structure is fun");
         System.out.println(res1);
+        */
+        ProgrammingA2Q2 q2 = new ProgrammingA2Q2();
+        int result = q2.bitFolding(args[0]);
+        System.out.println("The result is: ");
+        System.out.println(result);
     }
 }

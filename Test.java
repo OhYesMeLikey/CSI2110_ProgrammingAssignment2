@@ -8,6 +8,7 @@ public class Test {
     5. convert the combined string into its equivalent numeric value
     */
     public static void main(String[] args) {
+        /*
         // 1. 4 individual characters from a string
 		char c = 'd';
 		char c1 = 'a';
@@ -63,6 +64,13 @@ public class Test {
         int givenIntValue = 1701998444;
         System.out.println("Are they equal decimals: " + (givenIntValue == eqIntCombinedTestString));
         ////////////////////////////////////////////////////////////////////////////////////////////
-
+        */
+        int first = 1635017060;
+        int second = 1920234272;
+        int third = 1970561909;
+        int fourth = 1763730802;
+        int fifth = 1969627251;
+        int sixth = 128;
+        System.out.println(first ^ second ^ third ^ fourth ^ fifth ^ sixth);
     }
 }
