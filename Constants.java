@@ -3,6 +3,7 @@
 // Constants used in the ProgrammingA2Q3 class
 public class Constants {
 	// The intial buffer value
+	/*
 	protected static long[] IV = new long[] {
 		0x6A09E667F3BCC908L,
 		0xBB67AE8584CAA73BL,
@@ -12,6 +13,18 @@ public class Constants {
 		0x9B05688C2B3E6C1FL,
 		0x1F83D9ABFB41BD6BL,
 		0x5BE0CD19137E2179L
+	};
+	*/
+
+	protected static long[] IV = new long[] {
+		0xcbbb9d5dc1059ed8L,
+		0x629a292a367cd507L,
+		0x9159015a3070dd17L,
+		0x152fecd8f70e5939L,
+		0x67332667ffc00b31L,
+		0x8eb44a8768581511L,
+		0xdb0c2e0d64f98fa7L,
+		0x47b5481dbefa4fa4L
 	};
 
 	// The constant words used in the algorithm
